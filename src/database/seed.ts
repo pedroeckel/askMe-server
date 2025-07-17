@@ -4,10 +4,23 @@ import { schema } from "./schema/index.ts";
 
 await reset(db, schema);
 
-await seed(db, schema).refine((_) => {
+const actualDate = new Date();
+
+await seed(db, schema).refine((faker) => {
   return {
     rooms: {
       count: 20,
+      columns: {
+        createdAt: faker.date({
+          maxDate: actualDate,
+        }),
+      },
+    },
+    questions: {
+      count: 20,
+      createdAt: faker.date({
+        maxDate: actualDate,
+      }),
     },
   };
 });
