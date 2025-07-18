@@ -9,7 +9,7 @@ const actualDate = new Date();
 await seed(db, schema).refine((faker) => {
   return {
     rooms: {
-      count: 20,
+      count: 5,
       columns: {
         createdAt: faker.date({
           maxDate: actualDate,
