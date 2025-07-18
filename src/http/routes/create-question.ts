@@ -46,8 +46,6 @@ export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
         )
         .limit(10);
 
-      console.log(chunks);
-
       let answer: string | null = null;
 
       if (chunks.length > 0) {
